@@ -1,6 +1,21 @@
 body{
-    background-color: lightblue;
+    background-color: #302525fe;
     text-align: center;
-    font-family: 'Alegreya Sans SC', sans-serif;
+    font-family: 'Oswald', sans-serif;
+    background-image: url("assets/nightbackground.svg");
+    background-size: contain;
 
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+    background-position: center center;
+    /* background-size: auto; */
+}
+h1{
+    color: white;
+    font-weight: normal;
+    font-size: 40px;
+    
+}
+p{
+    color: white;
 }
