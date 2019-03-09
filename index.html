@@ -22,7 +22,7 @@
 
 
 <script>
-
+var currentgame=0;
 var wordlist = ["word","flamingo", "tree", "carrot"];
 var guesslist=[];
 var wronglist=[];
@@ -30,7 +30,7 @@ var displaylist=[];
 var currentWord;
 var numGuesses=0;
 //TODO randomly order array
-currentWord=wordlist[0];
+currentWord=wordlist[currentgame];
 for (var i=0;i<currentWord.length;i++){
     displaylist.push(" _ ");}
 
@@ -63,12 +63,37 @@ function checkWin(){
 
 
 function showLetter(i){
-var x=currentWord.indexOf(i);
-displaylist[x]=i;
+
+for (var p=0;p<currentWord.length;p++){
+if(currentWord[p]===i){
+displaylist[p]=i;
+}
 // document.getElementById("currentword").innerHTML=displaylist; 
-displayCurrentWord(); 
+
 
 }
+displayCurrentWord(); 
+}
+
+function newGame(){
+    console.log(currentgame);
+    if(currentgame<wordlist.length){
+        currentgame++;
+    }
+    else{
+        currentgame=0;
+    }
+    numGuesses=0;
+    guesslist=[];
+    wronglist=[];
+    displaylist=[];
+    currentWord=wordlist[currentgame];
+    for (var i=0;i<currentWord.length;i++){
+    displaylist.push(" _ ");}
+    displayCurrentWord();
+    }
+
+
 
 displayCurrentWord();
 
@@ -86,8 +111,9 @@ document.onkeydown = function (event){
         document.getElementById("guesslist").innerHTML =guesslist;
     }
     }
-
-checkWin();
+if(checkWin()){
+newGame();
+}
 
         
 
