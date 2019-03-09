@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+<h1>Hangman</h1>
+    </header>
+
+<p>Current Guesses:</p>
+<p id="guesslist"></p>
+
+<p>Current Word</p>
+<p id="currentword"></p>
+
+
+
+<script>
+
+var wordlist = ["word","flamingo", "tree", "carrot"];
+var guesslist=[];
+var wronglist=[];
+var displaylist=[];
+var currentWord;
+var numGuesses=0;
+//TODO randomly order array
+currentWord=wordlist[0];
+for (var i=0;i<currentWord.length;i++){
+    displaylist.push(" _ ");}
+
+
+function displayCurrentWord(){
+document.getElementById("currentword").innerHTML="";
+    for (var i=0;i<currentWord.length;i++){
+        
+document.getElementById("currentword").innerHTML+=displaylist[i];  }
+}
+  
+
+
+
+function showLetter(i){
+var x=currentWord.indexOf(i);
+displaylist[x]=i;
+// document.getElementById("currentword").innerHTML=displaylist; 
+displayCurrentWord(); 
+}
+
+displayCurrentWord();
+
+document.onkeydown = function (event){
+    alert(event.key);
+
+    if(currentWord.includes(event.key)){
+        alert("yes");
+        showLetter(event.key);
+    }
+    else{
+        guesslist.push(event.key);
+        document.getElementById("guesslist").innerHTML =guesslist;
+    }
+
+
+
+        
+
+}
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+</body>
+</html>
