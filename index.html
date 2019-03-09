@@ -41,7 +41,24 @@ document.getElementById("currentword").innerHTML="";
 document.getElementById("currentword").innerHTML+=displaylist[i];  }
 }
   
+function isLetter(i){
+var letters =['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+if(letters.includes(i)){
+    
+    return true;
+}
+   
+    return false;
+}
 
+function checkWin(){
+    if(!displaylist.includes(" _ ")){
+        alert("You won");
+        displayCurrentWord();
+        return true
+
+    }
+}
 
 
 function showLetter(i){
@@ -49,23 +66,27 @@ var x=currentWord.indexOf(i);
 displaylist[x]=i;
 // document.getElementById("currentword").innerHTML=displaylist; 
 displayCurrentWord(); 
+
 }
 
 displayCurrentWord();
 
 document.onkeydown = function (event){
-    alert(event.key);
-
+    
+    if(isLetter(event.key)){
+        
     if(currentWord.includes(event.key)){
-        alert("yes");
+        
         showLetter(event.key);
+        
     }
     else{
         guesslist.push(event.key);
         document.getElementById("guesslist").innerHTML =guesslist;
     }
+    }
 
-
+checkWin();
 
         
 
