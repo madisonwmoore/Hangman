@@ -19,10 +19,13 @@
 <p>Current Word</p>
 <p id="currentword"></p>
 
-
+<p id="wins">Press any key to get Started</p>
 
 <script>
 var currentgame=0;
+var wins=0;
+var losses=0;
+var guesses=12;
 var wordlist = ["word","flamingo", "tree", "carrot"];
 var guesslist=[];
 var wronglist=[];
@@ -30,6 +33,8 @@ var displaylist=[];
 var currentWord;
 var numGuesses=0;
 //TODO randomly order array
+
+
 currentWord=wordlist[currentgame];
 for (var i=0;i<currentWord.length;i++){
     displaylist.push(" _ ");}
@@ -70,6 +75,7 @@ function checkWin(){
     if(!displaylist.includes(" _ ")){
         alert("You won");
         displayCurrentWord();
+        wins++;
         return true
 
     }
@@ -91,7 +97,7 @@ displayCurrentWord();
 
 function newGame(){
     console.log(currentgame);
-    if(currentgame<wordlist.length){
+    if(currentgame<wordlist.length-1){
         currentgame++;
     }
     else{
@@ -107,6 +113,8 @@ function newGame(){
     for (var i=0;i<currentWord.length;i++){
     displaylist.push(" _ ");}
     displayCurrentWord();
+    document.getElementById("wins").textContent="Wins: "+wins;
+    console.log(currentWord);
     }
 
 
@@ -116,7 +124,7 @@ displayCurrentWord();
 document.onkeydown = function (event){
     
     if(isLetter(event.key)){
-        
+    
     if(currentWord.includes(event.key)){
         
         showLetter(event.key);
@@ -124,6 +132,7 @@ document.onkeydown = function (event){
     }
     else{
         if(!wasGuessed(event.key)){
+        guesses--;
         guesslist.push(event.key);
         document.getElementById("guesslist").innerHTML =guesslist;}
         else{
@@ -138,12 +147,6 @@ newGame();
         
 
 }
-
-
-
-
-
-
 
 
 
