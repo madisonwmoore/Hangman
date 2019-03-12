@@ -52,6 +52,20 @@ if(letters.includes(i)){
     return false;
 }
 
+function wasGuessed(i){
+if (guesslist.includes(i)){
+    return true;
+}
+else{
+    return false;
+}
+
+}
+
+
+
+
+
 function checkWin(){
     if(!displaylist.includes(" _ ")){
         alert("You won");
@@ -82,9 +96,11 @@ function newGame(){
     }
     else{
         currentgame=0;
+        displayCurrentWord(); 
     }
     numGuesses=0;
     guesslist=[];
+    document.getElementById("guesslist").innerHTML =guesslist;
     wronglist=[];
     displaylist=[];
     currentWord=wordlist[currentgame];
@@ -107,8 +123,12 @@ document.onkeydown = function (event){
         
     }
     else{
+        if(!wasGuessed(event.key)){
         guesslist.push(event.key);
-        document.getElementById("guesslist").innerHTML =guesslist;
+        document.getElementById("guesslist").innerHTML =guesslist;}
+        else{
+            alert("Already Guessed");
+        }
     }
     }
 if(checkWin()){
