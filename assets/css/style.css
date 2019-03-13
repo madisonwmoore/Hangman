@@ -7,7 +7,7 @@ body{
     background-repeat: no-repeat; 
     background-attachment: fixed;
     background-position: center top;
-    /* background-size: auto; */
+   
 }
 h1{
     color: white;
@@ -19,9 +19,4 @@ p{
     color: white;
     font-size:20px;
 }
-form{
-    display: none;
-}
-input{
-    display: none;
-}
+

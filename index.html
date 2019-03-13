@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Hangman</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 </head>
@@ -12,7 +12,7 @@
     <header>
 <h1>HANGMAN</h1>
     </header>
-<form><input type="text"></form>
+
 <p>Current Guesses:</p>
 <p id="guesslist"><br></p>
 
@@ -20,139 +20,7 @@
 <p id="currentword"></p>
 <p id="guesses">Guesses Remaining: 10</p>
 <p id="wins">Press any key to get Started</p>
-<!-- 
-<script>
-var currentgame=0;
-var wins=0;
-var losses=0;
-var guesses=12;
-var wordlist = ["word","flamingo", "tree", "carrot"];
-var guesslist=[];
-var wronglist=[];
-var displaylist=[];
-var currentWord;
-var numGuesses=0;
-//TODO randomly order array
 
-
-currentWord=wordlist[currentgame];
-for (var i=0;i<currentWord.length;i++){
-    displaylist.push(" _ ");}
-
-
-function displayCurrentWord(){
-document.getElementById("currentword").innerHTML="";
-    for (var i=0;i<currentWord.length;i++){
-        
-document.getElementById("currentword").innerHTML+=displaylist[i];  }
-}
-  
-function isLetter(i){
-var letters =['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-if(letters.includes(i)){
-    
-    return true;
-}
-   
-    return false;
-}
-
-function wasGuessed(i){
-if (guesslist.includes(i)){
-    return true;
-}
-else{
-    return false;
-}
-
-}
-
-
-
-
-
-function checkWin(){
-    if(!displaylist.includes(" _ ")){
-        alert("You won");
-        displayCurrentWord();
-        wins++;
-        return true
-
-    }
-}
-
-
-function showLetter(i){
-
-for (var p=0;p<currentWord.length;p++){
-if(currentWord[p]===i){
-displaylist[p]=i;
-}
-// document.getElementById("currentword").innerHTML=displaylist; 
-
-
-}
-displayCurrentWord(); 
-}
-
-function newGame(){
-    console.log(currentgame);
-    if(currentgame<wordlist.length-1){
-        currentgame++;
-    }
-    else{
-        currentgame=0;
-        displayCurrentWord(); 
-    }
-    numGuesses=0;
-    guesslist=[];
-    document.getElementById("guesslist").innerHTML =guesslist;
-    wronglist=[];
-    displaylist=[];
-    currentWord=wordlist[currentgame];
-    for (var i=0;i<currentWord.length;i++){
-    displaylist.push(" _ ");}
-    displayCurrentWord();
-    document.getElementById("wins").textContent="Wins: "+wins;
-    console.log(currentWord);
-    }
-
-
-
-displayCurrentWord();
-
-document.onkeydown = function (event){
-    
-    if(isLetter(event.key)){
-    
-    if(currentWord.includes(event.key)){
-        
-        showLetter(event.key);
-        
-    }
-    else{
-        if(!wasGuessed(event.key)){
-        guesses--;
-        guesslist.push(event.key);
-        document.getElementById("guesslist").innerHTML =guesslist;}
-        else{
-            alert("Already Guessed");
-        }
-    }
-    }
-if(checkWin()){
-newGame();
-}
-
-        
-
-}
-
-
-
-
-
-</script> -->
 
 <script src="assets/javascript/game.js"></script>
 
