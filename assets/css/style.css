@@ -2,21 +2,22 @@ body{
     background-color: #302525fe;
     text-align: center;
     font-family: 'Oswald', sans-serif;
-    background-image: url("assets/nightbackground.svg");
+    background-image: url("../images/nightbackground.svg");
     background-size: contain;
     background-repeat: no-repeat; 
     background-attachment: fixed;
-    background-position: center center;
+    background-position: center top;
     /* background-size: auto; */
 }
 h1{
     color: white;
     font-weight: normal;
-    font-size: 40px;
+    font-size: 80px;
     
 }
 p{
     color: white;
+    font-size:20px;
 }
 form{
     display: none;

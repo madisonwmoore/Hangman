@@ -1,32 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-</head>
-<body>
-    <header>
-<h1>HANGMAN</h1>
-    </header>
-<form><input type="text"></form>
-<p>Current Guesses:</p>
-<p id="guesslist"><br></p>
-
-<p>Current Word</p>
-<p id="currentword"></p>
-<p id="guesses">Guesses Remaining: 10</p>
-<p id="wins">Press any key to get Started</p>
-<!-- 
-<script>
 var currentgame=0;
 var wins=0;
 var losses=0;
-var guesses=12;
-var wordlist = ["word","flamingo", "tree", "carrot"];
+var guesses=10;
+var wordlist = ["star","tree", "night", "galaxy","milkyway","planet"];
 var guesslist=[];
 var wronglist=[];
 var displaylist=[];
@@ -67,19 +43,27 @@ else{
 
 }
 
-
-
-
-
 function checkWin(){
     if(!displaylist.includes(" _ ")){
-        alert("You won");
+        // alert("You won");
         displayCurrentWord();
         wins++;
         return true
 
     }
 }
+
+function checkLoss(){
+    if(guesses<=0){
+        return true;
+    }
+    else{
+        return false;
+    }
+
+}
+
+
 
 
 function showLetter(i){
@@ -106,7 +90,9 @@ function newGame(){
     }
     numGuesses=0;
     guesslist=[];
-    document.getElementById("guesslist").innerHTML =guesslist;
+    guesses=10;
+    document.getElementById("guesslist").innerHTML ="<br>";
+    document.getElementById("guesses").textContent="Guesses Remaining: "+guesses;
     wronglist=[];
     displaylist=[];
     currentWord=wordlist[currentgame];
@@ -116,8 +102,6 @@ function newGame(){
     document.getElementById("wins").textContent="Wins: "+wins;
     console.log(currentWord);
     }
-
-
 
 displayCurrentWord();
 
@@ -133,10 +117,16 @@ document.onkeydown = function (event){
     else{
         if(!wasGuessed(event.key)){
         guesses--;
+        document.getElementById("guesses").textContent="Guesses Remaining: "+guesses;
+       console.log("guesses " + guesses);
         guesslist.push(event.key);
-        document.getElementById("guesslist").innerHTML =guesslist;}
+        document.getElementById("guesslist").innerHTML =guesslist;
+            if(checkLoss()){
+                newGame();
+            }
+    }
         else{
-            alert("Already Guessed");
+            // alert("Already Guessed");
         }
     }
     }
@@ -147,14 +137,3 @@ newGame();
         
 
 }
-
-
-
-
-
-</script> -->
-
-<script src="assets/javascript/game.js"></script>
-
-</body>
-</html>
