@@ -1,4 +1,4 @@
-# Homework3
+
 Hangman
 
 Type letters to guess the word
