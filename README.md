@@ -1,5 +1,7 @@
 
-Hangman
+Simple Hangman Game
+
+https://madisonwmoore.github.io/Hangman/
 
 Type letters to guess the word
 
